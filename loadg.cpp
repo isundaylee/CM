@@ -70,8 +70,7 @@ void loadg(void) {
 //画像読み込み
 
 // 透過色を変更
-    // FIXME
-    // SetTransColor( 9*16+9 , 255 , 255 ) ;
+    SetTransColor( 9*16+9 , 255 , 255 ) ;
 
 //プレイヤー
     mgrap[0] = LoadGraph( "res/player.png" ) ;
@@ -238,46 +237,43 @@ void loadg(void) {
 //wav読み込み
 //try{
 //oto[2] = LoadSoundMem( "SE/1.WAV" ) ;
-    // FIXME
-    // SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMPRESS);
-    // oto[100]=LoadSoundMem( "BGM/field.mp3" ) ;
-    // ChangeVolumeSoundMem(50, oto[100]);
-    // oto[103]=LoadSoundMem( "BGM/dungeon.mp3" ) ;
-    // ChangeVolumeSoundMem(50, oto[103]);
-    // oto[104]=LoadSoundMem( "BGM/star4.mp3");
-    // oto[105]=LoadSoundMem( "BGM/castle.mp3");
-    // ChangeVolumeSoundMem(50, oto[105]);
-    // oto[106]=LoadSoundMem( "BGM/puyo.mp3");
-    // oto[107]=LoadSoundMem( "BGM/last.mp3");
-    // ChangeVolumeSoundMem(50, oto[107]);
+    SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMPRESS);
+    oto[100]=LoadSoundMem( "BGM/field.mp3" ) ;
+    ChangeVolumeSoundMem(50, oto[100]);
+    oto[103]=LoadSoundMem( "BGM/dungeon.mp3" ) ;
+    ChangeVolumeSoundMem(50, oto[103]);
+    oto[104]=LoadSoundMem( "BGM/star4.mp3");
+    oto[105]=LoadSoundMem( "BGM/castle.mp3");
+    ChangeVolumeSoundMem(50, oto[105]);
+    oto[106]=LoadSoundMem( "BGM/puyo.mp3");
+    oto[107]=LoadSoundMem( "BGM/last.mp3");
+    ChangeVolumeSoundMem(50, oto[107]);
 
-    // FIXME
-//     SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
-//     oto[1] = LoadSoundMem( "SE/jump.mp3" );
-// //oto[2] = LoadSoundMem("SE/brockcoin.mp3");
-//     oto[3] = LoadSoundMem("SE/brockbreak.mp3");
-//     oto[4] = LoadSoundMem("SE/coin.mp3");
-//     oto[5] = LoadSoundMem("SE/humi.mp3");
-//     oto[6] = LoadSoundMem("SE/koura.mp3");
-//     oto[7] = LoadSoundMem("SE/dokan.mp3");
-//     oto[8] = LoadSoundMem("SE/brockkinoko.mp3");
-//     oto[9] = LoadSoundMem("SE/powerup.mp3");
-//     oto[10] = LoadSoundMem("SE/kirra.mp3");
-//     oto[11] = LoadSoundMem("SE/goal.mp3");
-//     oto[12] = LoadSoundMem("SE/death.mp3");
-//     oto[13] = LoadSoundMem("SE/Pswitch.mp3");
-//     oto[14] = LoadSoundMem("SE/jumpBlock.mp3");
-//     oto[15] = LoadSoundMem("SE/hintBlock.mp3");
-//     oto[16] = LoadSoundMem("SE/4-clear.mp3");
-//     oto[17] = LoadSoundMem("SE/allclear.mp3");
-//     oto[18] = LoadSoundMem("SE/tekifire.mp3");
+    SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
+    oto[1] = LoadSoundMem( "SE/jump.mp3" );
+//oto[2] = LoadSoundMem("SE/brockcoin.mp3");
+    oto[3] = LoadSoundMem("SE/brockbreak.mp3");
+    oto[4] = LoadSoundMem("SE/coin.mp3");
+    oto[5] = LoadSoundMem("SE/humi.mp3");
+    oto[6] = LoadSoundMem("SE/koura.mp3");
+    oto[7] = LoadSoundMem("SE/dokan.mp3");
+    oto[8] = LoadSoundMem("SE/brockkinoko.mp3");
+    oto[9] = LoadSoundMem("SE/powerup.mp3");
+    oto[10] = LoadSoundMem("SE/kirra.mp3");
+    oto[11] = LoadSoundMem("SE/goal.mp3");
+    oto[12] = LoadSoundMem("SE/death.mp3");
+    oto[13] = LoadSoundMem("SE/Pswitch.mp3");
+    oto[14] = LoadSoundMem("SE/jumpBlock.mp3");
+    oto[15] = LoadSoundMem("SE/hintBlock.mp3");
+    oto[16] = LoadSoundMem("SE/4-clear.mp3");
+    oto[17] = LoadSoundMem("SE/allclear.mp3");
+    oto[18] = LoadSoundMem("SE/tekifire.mp3");
 
 //}catch( int num){end();}
 
 
     x1=40;
-    // FIXME
-    // ChangeVolumeSoundMem( 255 * x1 / 100, oto[103] ) ;
+    ChangeVolumeSoundMem( 255 * x1 / 100, oto[103] ) ;
 
 
 //ループ設定-20000-20秒

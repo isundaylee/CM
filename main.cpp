@@ -1555,13 +1555,11 @@ void Mainprogram() {
             }
 
 
-            // FIXME
-            // StopSoundMem(oto[0]);
+            StopSoundMem(oto[0]);
 
 
 //メインBGM
-            // FIXME
-            // PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP) ;
+            PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP) ;
 //PlayMusic("BGM/titerman.mp3",DX_PLAYTYPE_LOOP) ;
 
 
@@ -1771,10 +1769,9 @@ void Mainprogram() {
             mtype=200;
             mtm=0;
             ot(oto[12]);
-            // FIXME
-            // StopSoundMem(oto[0]);
-            // StopSoundMem(oto[11]);
-            // StopSoundMem(oto[16]);
+            StopSoundMem(oto[0]);
+            StopSoundMem(oto[11]);
+            StopSoundMem(oto[16]);
         }//mhp
 //if (mhp<=-10){
         if (mtype==200) {
@@ -1812,8 +1809,7 @@ void Mainprogram() {
                 blacktm=20;
                 stc+=5;
                 stagerr=0;
-                // FIXME
-                // StopSoundMem(oto[0]);
+                StopSoundMem(oto[0]);
                 mtm=0;
                 mtype=0;
                 mkeytm=-1;
@@ -1927,8 +1923,7 @@ void Mainprogram() {
                         blackx=1;
                         blacktm=20;
                         stagerr=0;
-                        // FIXME
-                        // StopSoundMem(oto[0]);
+                        StopSoundMem(oto[0]);
                     }
                 }
             }//00
@@ -2179,8 +2174,7 @@ void Mainprogram() {
                                                 ttype[tt]=800;
                                             }
                                         }
-                                        // FIXME
-                                        // StopSoundMem(oto[0]);
+                                        StopSoundMem(oto[0]);
                                     }
 
 //音符+
@@ -2309,8 +2303,7 @@ void Mainprogram() {
                             ta[t]=-800000;//ot(oto[4]);
                             sracttype[20]=1;
                             sron[20]=1;
-                            // FIXME
-                            // StopSoundMem(oto[0]);
+                            StopSoundMem(oto[0]);
                             mtype=301;
                             mtm=0;
                             ot(oto[16]);
@@ -2846,8 +2839,7 @@ void Mainprogram() {
                             if (sxtype[t]==30) {
                                 sa[t]=-80000000;
                                 md=0;
-                                // FIXME
-                                // StopSoundMem(oto[0]);
+                                StopSoundMem(oto[0]);
                                 mtype=302;
                                 mtm=0;
                                 ot(oto[16]);
@@ -2895,8 +2887,7 @@ void Mainprogram() {
 
 
                         if (stype[t]==300 && mtype==0 && mb<xx[9]+sd[t]+xx[0]-3000 && mhp>=1) {
-                            // FIXME
-                            // StopSoundMem(oto[0]);
+                            StopSoundMem(oto[0]);
                             mtype=300;
                             mtm=0;
                             ma=sa[t]-fx-2000;
@@ -3416,10 +3407,9 @@ void Mainprogram() {
                             eyobi(aa[t]+1200-1200,ab[t]+3000-10*3000-1500,0,0,0,0,1000,10*3000-1200,4,20);
                             if (mtype==300) {
                                 mtype=0;
-                                // FIXME
-                                // StopSoundMem(oto[11]);
+                                StopSoundMem(oto[11]);
                                 bgmchange(oto[100]);
-                                // PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP);
+                                PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP);
                             }
                             for (t1=0; t1<smax; t1++) {
                                 if (stype[t1]==104)sa[t1]=-80000000;
@@ -4344,8 +4334,7 @@ void Mainprogram() {
         if (maintm<=1) {
             maintm=2;
             bgmchange(oto[106]);
-            // FIXME
-            // PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP);
+            PlaySoundMem(oto[0],DX_PLAYTYPE_LOOP);
             xx[10]=0;
             for (t=0; t<=xx[7]; t+=1) {
                 xx[12+t]=980000;
@@ -4680,7 +4669,6 @@ int rand(int Rand) {
 //終了
 void end() {
 //maint=3;
-    // FIXME
     // DxLib_End() ;
     TTF_CloseFont(font); 
     SDL_Quit(); 
@@ -4876,8 +4864,7 @@ void setfont(int a) {
 
 //音楽再生
 void ot(int x) {
-    // FIXME
-    // PlaySoundMem(x, DX_PLAYTYPE_BACK) ;
+    PlaySoundMem(x, DX_PLAYTYPE_BACK) ;
 }
 
 
@@ -7405,8 +7392,7 @@ void stagep() {
 
 //BGM変更
 void bgmchange(int x) {
-    // FIXME
-    // StopSoundMem(oto[0]);
+    StopSoundMem(oto[0]);
     oto[0]=0;
     oto[0]=x;
 }//bgmchange()
@@ -7622,15 +7608,13 @@ void ayobi(int xa,int xb,int xc,int xd,int xnotm,int xtype,int xxtype) {
 
 
 //大砲音
-            // FIXME
-            // if (xtype==7 && CheckSoundMem(oto[10])==0) {
-            //     ot(oto[10]);
-            // }
+            if (xtype==7 && CheckSoundMem(oto[10])==0) {
+                ot(oto[10]);
+            }
 //ファイア音
-            // FIXME
-            // if (xtype==10 && CheckSoundMem(oto[18])==0) {
-            //     ot(oto[18]);
-            // }
+            if (xtype==10 && CheckSoundMem(oto[18])==0) {
+                ot(oto[18]);
+            }
 
 
             azimentype[aco]=1;
