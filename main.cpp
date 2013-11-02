@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_TTF.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 // #include "DxLib.h"
 // #include "DxDirectX.h"
 //#include <DXGI.h>
@@ -86,9 +87,9 @@ void drawimage(SDL_Surface *mx, int a, int b, int c, int d, int e, int f);
 void setre();
 void setre2();
 void setno();
-int oto[151];
-void ot(int x);
-void bgmchange(int x);
+Mix_Music *oto[151];
+void ot(Mix_Music *x);
+void bgmchange(Mix_Music *x);
 
 //文字
 void str(string c,int a,int b);
@@ -340,6 +341,27 @@ int GetNowCount()
     return SDL_GetTicks(); 
 }
 
+const int DX_PLAYTYPE_LOOP = 1; 
+const int DX_PLAYTYPE_NORMAL = 0; 
+const int DX_PLAYTYPE_BACK = 1; 
+
+int PlaySoundMem(Mix_Music *music, int looping)
+{
+    Mix_PlayMusic(music, looping); 
+}
+
+int StopSoundMem(Mix_Music *music)
+{
+    // FIXME Ignores music parameter. 
+    Mix_PauseMusic(); 
+}
+
+int CheckSoundMem(Mix_Music *music)
+{
+    // FIXME Ignores music parameter
+    return 0; 
+}
+
 int main(int argc, char **argv) {
 
 //画面サイズ設定
@@ -372,6 +394,8 @@ int main(int argc, char **argv) {
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); 
+
+    Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 640); 
 
 // 点を打つ
 //DrawPixel( 320 , 240 , 0xffff ) ;
@@ -4863,7 +4887,7 @@ void setfont(int a) {
 }
 
 //音楽再生
-void ot(int x) {
+void ot(Mix_Music *x) {
     PlaySoundMem(x, DX_PLAYTYPE_BACK) ;
 }
 
@@ -7391,7 +7415,7 @@ void stagep() {
 }//stagep
 
 //BGM変更
-void bgmchange(int x) {
+void bgmchange(Mix_Music *x) {
     StopSoundMem(oto[0]);
     oto[0]=0;
     oto[0]=x;
@@ -7602,7 +7626,7 @@ void ayobi(int xa,int xb,int xc,int xd,int xnotm,int xtype,int xxtype) {
             if (aa[aco]-fx>ma+mnobia/2)amuki[aco]=0;
             if (abrocktm[aco]>=1)amuki[aco]=1;
             if (abrocktm[aco]==20)amuki[aco]=0;
-
+            
             anobia[aco]=anx[atype[aco]];
             anobib[aco]=any[atype[aco]];
 

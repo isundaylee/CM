@@ -1,6 +1,7 @@
 ﻿// #include "DxLib.h"
 #include <SDL.h> 
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <string>
 void end();
 
@@ -8,7 +9,7 @@ extern int ma,t,tt;
 // extern int grap[161][8],mgrap[51];
 extern SDL_Surface *grap[161][8], *mgrap[51]; 
 int x1;
-extern int oto[151];
+extern Mix_Music *oto[151];
 
 extern int anx[160],any[160];
 extern int ne[40],nf[40];
@@ -50,6 +51,17 @@ SDL_Surface *DerivationGraph(int x, int y, int w, int h, SDL_Surface *graph)
     return s; 
 }
 
+Mix_Music *LoadSoundMem(char *FileName)
+{
+    return Mix_LoadMUS(FileName); 
+}
+
+int ChangeVolumeSoundMem(int Volume, Mix_Music *sound)
+{
+    // FIXME
+    return 0; 
+}
+
 void loadg(void) {
 
     for (t=0; t<7; t++) {
@@ -70,7 +82,7 @@ void loadg(void) {
 //画像読み込み
 
 // 透過色を変更
-    SetTransColor( 9*16+9 , 255 , 255 ) ;
+    // SetTransColor( 9*16+9 , 255 , 255 ) ;
 
 //プレイヤー
     mgrap[0] = LoadGraph( "res/player.png" ) ;
@@ -237,7 +249,10 @@ void loadg(void) {
 //wav読み込み
 //try{
 //oto[2] = LoadSoundMem( "SE/1.WAV" ) ;
-    SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMPRESS);
+    // FIXME
+    // SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMPRESS);
+
+
     oto[100]=LoadSoundMem( "BGM/field.mp3" ) ;
     ChangeVolumeSoundMem(50, oto[100]);
     oto[103]=LoadSoundMem( "BGM/dungeon.mp3" ) ;
@@ -249,7 +264,9 @@ void loadg(void) {
     oto[107]=LoadSoundMem( "BGM/last.mp3");
     ChangeVolumeSoundMem(50, oto[107]);
 
-    SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
+    // FIXME
+    // SetCreateSoundDataType(DX_SOUNDDATATYPE_MEMNOPRESS);
+    
     oto[1] = LoadSoundMem( "SE/jump.mp3" );
 //oto[2] = LoadSoundMem("SE/brockcoin.mp3");
     oto[3] = LoadSoundMem("SE/brockbreak.mp3");
